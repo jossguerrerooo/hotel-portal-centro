@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="wiewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Portal Centro | Pelaya, Cesar</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f7f5f0;
+    color: #26332e;
+    line-height: 1.6;
+}
+
+header {
+    background: #173e35;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #e7d5ad;
+}
+
+nav {
+    background: #102e28;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e5c17b;
+}
+
+.portada {
+    min-height: 480px;
+    background:
+        linear-gradient(#0007, #0007),
+        url("fachada.jpeg")
+        center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px 20px;
+}
+
+.portada h2 {
+    font-size: clamp(32px, 6vw, 52px);
+    margin-bottom: 15px;
+}
+
+.portada p {
+    font-size: 19px;
+    max-width: 650px;
+    margin-bottom: 25px;
+}
+
+.boton {
+    display: inline-block;
+    background: #d8b36a;
+    color: #173e35;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.boton:hover {
+    background: #edcf91;
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.titulo {
+    color: #173e35;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.nosotros {
+    max-width: 850px;
+    margin: auto;
+}
+
+.habitaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto 0;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #00000012;
+    padding-bottom: 24px;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.tarjeta h3 {
+    color: #173e35;
+    margin: 15px 10px 5px;
+    font-size: 21px;
+}
+
+.tarjeta p {
+    padding: 0 15px;
+    margin: 7px 0;
+}
+
+.precio {
+    color: #98702d;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#servicios {
+    background: #e9eee8;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.servicio {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 10px;
+}
+
+.servicio span {
+    font-size: 35px;
+}
+
+.servicio h3 {
+    color: #173e35;
+    margin: 10px;
+}
+
+#reservas {
+    background: #173e35;
+    color: white;
+}
+
+#reservas .titulo {
+    color: white;
+}
+
+#reservas .subtitulo {
+    color: #e0e6df;
+}
+
+.formulario {
+    background: white;
+    color: #26332e;
+    max-width: 600px;
+    margin: 25px auto 0;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.formulario label {
+    display: block;
+    margin: 13px 0 5px;
+    font-weight: bold;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d2d7d2;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fff;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: 2px solid #d8b36a;
+}
+
+.formulario button {
+    width: 100%;
+    margin-top: 22px;
+    background: #218c52;
+    color: white;
+}
+
+.formulario button:hover {
+    background: #176c3e;
+}
+
+.nota {
+    font-size: 13px;
+    color: #666;
+    margin-top: 12px;
+    text-align: center;
+}
+
+#contacto {
+    background: #f7f5f0;
+}
+
+.contacto-contenido {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+.contacto-contenido p {
+    margin: 12px;
+}
+
+.contacto-contenido a {
+    color: #187b48;
+    font-weight: bold;
+}
+
+footer {
+    background: #102e28;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+.whatsapp-flotante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    box-shadow: 0 3px 12px #0003;
+    z-index: 10;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .portada {
+        min-height: 400px;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏨 HOTEL PORTAL CENTRO</h1>
+    <p>Tu descanso, nuestra prioridad</p>
+    <p>📍 Pelaya, Cesar, Colombia</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#habitaciones">Habitaciones</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+
+<div class="portada" id="inicio">
+    <h2>Bienvenido al Hotel Portal Centro</h2>
+    <p>
+        Encuentra comodidad, tranquilidad y una atención pensada
+        para que disfrutes tu estadía en Pelaya, Cesar.
+    </p>
+    <a href="#reservas" class="boton">Reservar habitación</a>
+</div>
+
+<section id="nosotros">
+    <div class="nosotros">
+        <h2 class="titulo">Sobre nosotros</h2>
+        <p>
+            En el Hotel Portal Centro queremos brindarte un espacio
+            cómodo y agradable durante tu visita a Pelaya, Cesar.
+            Nuestro objetivo es ofrecerte una experiencia de descanso
+            con atención amable y un ambiente acogedor.
+        </p>
+    </div>
+</section>
+
+<section id="habitaciones">
+    <h2 class="titulo">Nuestras habitaciones</h2>
+    <p class="subtitulo">
+        Elige la opción que mejor se adapte a tu estadía.
+    </p>
+
+    <div class="habitaciones">
+
+        <article class="tarjeta">
+            <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700"
+                alt="Habitación estándar">
+            <h3>Habitación estándar</h3>
+            <p>Una opción práctica para descansar.</p>
+            <p>🛏️ Comodidad para tu estadía</p>
+            <p class="precio">Consultar precio</p>
+            <a href="#reservas" class="boton">Consultar</a>
+        </article>
+
+        <article class="tarjeta">
+            <img
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700"
+                alt="Habitación doble">
+            <h3>Habitación doble</h3>
+            <p>Ideal para quienes viajan acompañados.</p>
+            <p>🛏️ Espacio para compartir</p>
+            <p class="precio">Consultar precio</p>
+            <a href="#reservas" class="boton">Consultar</a>
+        </article>
+
+        <article class="tarjeta">
+            <img
+                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700"
+                alt="Habitación especial">
+            <h3>Habitación especial</h3>
+            <p>Una alternativa para disfrutar tu visita.</p>
+            <p>✨ Consulta las opciones disponibles</p>
+            <p class="precio">Consultar precio</p>
+            <a href="#reservas" class="boton">Consultar</a>
+        </article>
+
+    </div>
+</section>
+
+<section id="servicios">
+    <h2 class="titulo">Nuestros servicios</h2>
+    <p class="subtitulo">
+        Consulta con nosotros los servicios disponibles.
+    </p>
+
+    <div class="servicios">
+        <div class="servicio">
+            <span>🛏️</span>
+            <h3>Alojamiento</h3>
+            <p>Opciones de habitación para tu visita.</p>
+        </div>
+
+        <div class="servicio">
+            <span>📲</span>
+            <h3>Atención por WhatsApp</h3>
+            <p>Comunícate con nosotros fácilmente.</p>
+        </div>
+
+        <div class="servicio">
+            <span>📍</span>
+            <h3>Ubicación</h3>
+            <p>Estamos en Pelaya, Cesar, Colombia.</p>
+        </div>
+
+        <div class="servicio">
+            <span>🤝</span>
+            <h3>Atención personalizada</h3>
+            <p>Consulta tus necesidades antes de reservar.</p>
+        </div>
+    </div>
+</section>
+
+<section id="reservas">
+    <h2 class="titulo">Reserva tu habitación</h2>
+    <p class="subtitulo">
+        Completa el formulario y envía tu solicitud por WhatsApp.
+    </p>
+
+    <form class="formulario" id="formulario">
+
+        <label for="nombre">Nombre completo</label>
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre"
+            required>
+
+        <label for="telefono">Tu número de celular</label>
+        <input
+            type="tel"
+            id="telefono"
+            placeholder="Escribe tu número de contacto"
+            required>
+
+        <label for="correo">Correo electrónico (opcional)</label>
+        <input
+            type="email"
+            id="correo"
+            placeholder="ejemplo@correo.com">
+
+        <label for="entrada">Fecha de llegada</label>
+        <input
+            type="date"
+            id="entrada"
+            required>
+
+        <label for="salida">Fecha de salida</label>
+        <input
+            type="date"
+            id="salida"
+            required>
+
+        <label for="personas">Número de huéspedes</label>
+        <select id="personas" required>
+            <option value="1 persona">1 persona</option>
+            <option value="2 personas" selected>2 personas</option>
+            <option value="3 personas">3 personas</option>
+            <option value="4 personas">4 personas</option>
+            <option value="5 o más personas">5 o más personas</option>
+        </select>
+
+        <label for="habitacion">Tipo de habitación</label>
+        <select id="habitacion" required>
+            <option value="Habitación estándar">Habitación estándar</option>
+            <option value="Habitación doble">Habitación doble</option>
+            <option value="Habitación especial">Habitación especial</option>
+            <option value="Quiero consultar opciones">Quiero consultar opciones</option>
+        </select>
+
+        <label for="comentarios">Comentarios adicionales (opcional)</label>
+        <textarea
+            id="comentarios"
+            rows="3"
+            placeholder="Escribe alguna solicitud especial"></textarea>
+
+        <button type="submit" class="boton">
+            📲 Enviar reserva por WhatsApp
+        </button>
+
+        <p class="nota">
+            Tu solicitud será enviada al WhatsApp del hotel.
+            La reserva debe ser confirmada por el establecimiento.
+        </p>
+    </form>
+</section>
+
+<section id="contacto">
+    <h2 class="titulo">Contáctanos</h2>
+
+    <div class="contacto-contenido">
+        <p>🏨 <strong>Hotel Portal Centro</strong></p>
+        <p>📍 Pelaya, Cesar, Colombia</p>
+        <p>📱 WhatsApp: 3045918662</p>
+        <p>
+            ¿Tienes preguntas sobre las habitaciones o los precios?
+        </p>
+        <a
+            href="https://wa.me/573045918662?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Hotel%20Portal%20Centro."
+            class="boton"
+            target="_blank"
+            rel="noopener">
+            Hablar con el hotel
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p><strong>HOTEL PORTAL CENTRO</strong></p>
+    <p>Pelaya, Cesar, Colombia</p>
+    <p>Reservas y consultas por WhatsApp: 3045918662</p>
+    <p>© 2026 Hotel Portal Centro. Todos los derechos reservados.</p>
+</footer>
+
+<a
+    class="whatsapp-flotante"
+    href="https://wa.me/573045918662"
+    target="_blank"
+    rel="noopener"
+    aria-label="Contactar por WhatsApp">✆</a>
+
+<script>
+const formulario = document.getElementById("formulario");
+const entrada = document.getElementById("entrada");
+const salida = document.getElementById("salida");
+
+const hoy = new Date();
+const fechaLocal = new Date(
+    hoy.getTime() - hoy.getTimezoneOffset() * 60000
+).toISOString().split("T")[0];
+
+entrada.min = fechaLocal;
+salida.min = fechaLocal;
+
+entrada.addEventListener("change", function() {
+    salida.min = entrada.value || fechaLocal;
+
+    if (salida.value && salida.value <= entrada.value) {
+        salida.value = "";
+    }
+});
+
+formulario.addEventListener("submit", function(evento) {
+    evento.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const fechaEntrada = entrada.value;
+    const fechaSalida = salida.value;
+    const personas = document.getElementById("personas").value;
+    const habitacion = document.getElementById("habitacion").value;
+    const comentarios = document.getElementById("comentarios").value.trim();
+
+    if (fechaEntrada < fechaLocal) {
+        alert("Selecciona una fecha de llegada válida.");
+        return;
+    }
+
+    if (fechaSalida <= fechaEntrada) {
+        alert("La fecha de salida debe ser posterior a la llegada.");
+        return;
+    }
+
+    const mensaje =
+        "🏨 *NUEVA SOLICITUD DE RESERVA*\n\n" +
+        "¡Hola, Hotel Portal Centro! Quiero consultar una reserva.\n\n" +
+        "👤 *Nombre:* " + nombre + "\n" +
+        "📱 *Celular del huésped:* " + telefono + "\n" +
+        "📧 *Correo:* " + (correo || "No proporcionado") + "\n" +
+        "📅 *Llegada:* " + fechaEntrada + "\n" +
+        "📅 *Salida:* " + fechaSalida + "\n" +
+        "👥 *Huéspedes:* " + personas + "\n" +
+        "🛏️ *Habitación:* " + habitacion + "\n" +
+        "📝 *Comentarios:* " + (comentarios || "Ninguno") + "\n\n" +
+        "Por favor, confirmen disponibilidad y precio. ¡Gracias!";
+
+    const numeroHotel = "573045918662";
+    const url = "https://wa.me/" + numeroHotel +
+                "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
